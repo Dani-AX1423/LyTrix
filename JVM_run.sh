@@ -35,7 +35,14 @@ CLASSNAME="${FILENAME%.*}"
 
 # ------------- COMPILE ----------------
 echo "[+] Compiling $FILENAME → $OUT_DIR"
-javac -d "$OUT_DIR" "$JAVA_PATH"
+javac -d "$OUT_DIR" \
+  src/org/dani/lytrix/core/frontend/scanner/streams/*.java \
+  src/org/dani/lytrix/core/frontend/scanner/tokens/*.java \
+  src/org/dani/lytrix/core/frontend/scanner/Lexing_Process/*.java \
+  src/org/dani/lytrix/core/api/cli/*.java
+
+
+#javac -d "$OUT_DIR" "$JAVA_PATH"
 
 if [ $? -ne 0 ]; then
     echo "[!] Compilation failed!"
