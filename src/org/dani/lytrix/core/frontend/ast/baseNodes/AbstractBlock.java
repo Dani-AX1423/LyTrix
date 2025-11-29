@@ -1,5 +1,9 @@
 package org.dani.lytrix.core.frontend.ast.baseNodes;
-public abstract class AbstractBlock 
+//Required : Parent AST abstract class,
+import org.dani.lytrix.core.frontend.ast.ASTNode;
+
+//Abstract class node for Block of code
+public abstract class AbstractBlock extends ASTNode
 {
 //...
 }

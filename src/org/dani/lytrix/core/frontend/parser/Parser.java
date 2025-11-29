@@ -52,7 +52,7 @@ this.idx =0;
 }
 
 
-
+//Basic helper functions for iteration
 private Token peek() {
 return tokens.get(idx);
 }
@@ -70,6 +70,7 @@ idx++;
 return previous();
 }
 
+//Additional helper functions for syntax checking
 private boolean check(TokenType type) {
 if(isAtEnd()) return false;
 return peek().getType() == type;
@@ -88,9 +89,11 @@ else throw new RuntimeException(errorMessage + " at Line : " + peek().getLine() 
 }
 
 
-//Parsing Functions
+//Main parser function that creates the AST
 public ProgramNode parse()
 {return parseProgram();}
+
+//Parsing Functions that parses program and creates respective nodes
 private ProgramNode parseProgram()
 {
 return new ProgramNode(parseFunction());
