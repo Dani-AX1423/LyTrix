@@ -107,7 +107,7 @@ public class Parser {
             advance();
             return arg;
         } else if (check(TokenType.RPARA)) {
-            //advance();
+            // advance();
             return null;
         } else {
             throw new RuntimeException("Invalid argument inside writeSc");
@@ -177,6 +177,12 @@ public class Parser {
                 Token literal = advance();
                 expect(TokenType.SEMI_COL, "Statement should be terminated by semicolon");
                 return new VarInitNode(type, identifier, literal);
+            } else if (check(TokenType.IDENT)) {
+                Token identLiteral = advance();
+                expect(TokenType.SEMI_COL, "Statement should be terminated by semicolon");
+                return new VarInitNode(type, identifier, identLiteral);
+            } else if (check(TokenType.READ_SC)) {
+                return parseInput(type, identifier);
             } else {
                 throw new RuntimeException("Invalid literal object");
             }
@@ -195,19 +201,41 @@ public class Parser {
             expect(TokenType.SEMI_COL, "Statement should be terminated by semicolon");
             return new VarAssignNode(identifier, literal);
 
+        } else if (check(TokenType.IDENT)) {
+            Token identLiteral = advance();
+            expect(TokenType.SEMI_COL, "Statement should be terminated by semicolon");
+            return new VarAssignNode(identifier, identLiteral);
+
+        } else if (check(TokenType.READ_SC)) {
+            return parseInput(null, identifier);
         }
-        // else if () {} readSc operation hahahahahaha
+        // else if () {} readSc operation hahahahahaha........... oh wait it got
+        // implemented above :D
         else {
             throw new RuntimeException("Invalid literal object");
         }
 
     }
 
+    private InputNode parseInput(Token declrType, Token identifier) {
+        // Token identifier = ident;
+        expect(TokenType.READ_SC, "Expected readSc");
+        expect(TokenType.LPARA, "Expected '(' ");
+        if (checkDType()) {
+            Token argType = advance();
+            expect(TokenType.RPARA, "Expected ')' ");
+            expect(TokenType.SEMI_COL, "Statements should be terminated by semicolon");
+            return new InputNode(declrType, identifier, argType);
+        } else {
+            throw new RuntimeException("Invalid type argument inside readSc()");
+        }
+    }
+
     private OutputNode parseOutput() {
         expect(TokenType.WRITE_SC, "Expected writeSc");
-        expect(TokenType.LPARA, "Expected '('");
+        expect(TokenType.LPARA, "Expected '(' ");
         Token arg = fetchOPArg(peek());// expect(TokenType.STRING_LIT, "Expected String literal");
-        expect(TokenType.RPARA, "Expected ')'");
+        expect(TokenType.RPARA, "Expected ')' ");
         expect(TokenType.SEMI_COL, "Statements should be terminated by semicolon");
         return new OutputNode(arg);
     }

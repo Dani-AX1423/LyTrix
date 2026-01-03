@@ -11,6 +11,7 @@ R visitFunctionBlock(FunctionBlockNode node);
 R visitVarDeclr(VarDeclrNode node);
 R visitVarAssign(VarAssignNode node);
 R visitVarInit(VarInitNode node);
+R visitInput(InputNode node);
 R visitOutput(OutputNode node);
 R visitReturn(ReturnNode node);
 

@@ -1,0 +1,93 @@
+void BackLine() {
+
+    writeSc("=== LyTrix v0.0.8 Test Start ===");
+    writeSc();
+
+    int a;
+    float f;
+    double d;
+    char c;
+    string s;
+
+    int x = 10;
+    float y = 3.5;
+    double z = 99.99;
+    char ch = 'K';
+    string msg = "Hello LyTrix";
+
+    writeSc(x);
+    writeSc(y);
+    writeSc(z);
+    writeSc(ch);
+    writeSc(msg);
+    writeSc();
+
+    int x2 = x;
+    float y2 = y;
+    double z2 = z;
+
+    writeSc(x2);
+    writeSc(y2);
+    writeSc(z2);
+    writeSc();
+
+    a = 42;
+    f = 1.25;
+    d = 123.456;
+    c = 'Z';
+    s = "Reassigned";
+
+    writeSc(a);
+    writeSc(f);
+    writeSc(d);
+    writeSc(c);
+    writeSc(s);
+    writeSc();
+
+    a = x;
+    f = y;
+    d = z;
+
+    writeSc(a);
+    writeSc(f);
+    writeSc(d);
+    writeSc();
+
+    writeSc("Enter an integer:");
+    int inInt = readSc(int);
+
+    writeSc("Enter a float:");
+    float inFloat = readSc(float);
+
+    writeSc("Enter a double:");
+    double inDouble = readSc(double);
+
+    writeSc("Enter a character:");
+    char inChar = readSc(char);
+
+    writeSc("Enter a string:");
+    string inStr = readSc(string);
+
+    writeSc();
+    writeSc("You entered:");
+    writeSc(inInt);
+    writeSc(inFloat);
+    writeSc(inDouble);
+    writeSc(inChar);
+    writeSc(inStr);
+    writeSc();
+
+    writeSc("Re-enter integer:");
+    a = readSc(int);
+
+    writeSc("Re-enter string:");
+    s = readSc(string);
+
+    writeSc(a);
+    writeSc(s);
+    writeSc();
+
+    writeSc("=== End of Test ===");
+
+    return EOM;
+}

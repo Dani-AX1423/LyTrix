@@ -24,7 +24,7 @@ public class Lexer extends LexHelperFunctions {
         Tokens.add(t);
     }
 
-    // Special helper functions
+    // Special helper functions for checking token 
     // Token Validation functions for classification
     private boolean checkDType(String curr) {
         if ((curr.equals("void")) || (curr.equals("int")) || (curr.equals("char")) || (curr.equals("float"))
@@ -66,6 +66,8 @@ public class Lexer extends LexHelperFunctions {
 
     private boolean checkIO(String curr) {
         if (curr.equals("writeSc"))
+            return true;
+        else if (curr.equals("readSc"))
             return true;
         else
             return false;
@@ -117,6 +119,19 @@ public class Lexer extends LexHelperFunctions {
         }
     }
 
+    //Input or Output functions classifier function to return correct token
+    private TokenType classifyIOFun(String io)
+    {
+        if(io.equals("writeSc"))
+            return TokenType.WRITE_SC;
+        else if (io.equals("readSc"))
+            return TokenType.READ_SC;
+        else
+            throw new RuntimeException("Invalid IO function");
+    }
+
+    //
+    //
     // Token identifier function that
     private Token identifyString(String curr) {
         if (checkDType(curr))
@@ -124,7 +139,7 @@ public class Lexer extends LexHelperFunctions {
         else if (checkBackLine(curr))
             return genToken(TokenType.BACKLINE, curr, R, C);
         else if (checkIO(curr))
-            return genToken(TokenType.WRITE_SC, curr, R, C);
+            return genToken(classifyIOFun(curr), curr, R, C);
         else if (checkReturn(curr))
             return genToken(TokenType.RETURN, curr, R, C);
         else if (checkEOM(curr))

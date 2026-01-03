@@ -14,8 +14,10 @@ LPARA,RPARA,
 LCURL,RCURL,
 SEMI_COL,
 
-//Statements
+//IO Functions
 WRITE_SC,
+READ_SC,
+
 
 
 //Types
@@ -36,7 +38,10 @@ DOUBLE_LIT,
 CHAR_LIT,
 STRING_LIT,
 
+
+//identifier name
 IDENT,
+
 //return key
 RETURN,
 

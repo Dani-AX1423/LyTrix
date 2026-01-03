@@ -11,7 +11,7 @@ import org.dani.lytrix.core.frontend.scanner.tokens.*;
 import org.dani.lytrix.core.frontend.scanner.Lexing_Process.*;
 //import org.dani.lytrix.core.frontend.scanner.Lexing_Process.LexHelperFunctions;
 import org.dani.lytrix.core.frontend.parser.*;
-import org.dani.lytrix.LyTrix_R.backend.interpreter.*;
+import org.dani.lytrix.LyTrixR.backend.interpreter.*;
 import org.dani.lytrix.core.frontend.ast.ASTNode;
 
 

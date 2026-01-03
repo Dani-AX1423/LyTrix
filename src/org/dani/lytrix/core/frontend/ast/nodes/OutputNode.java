@@ -16,8 +16,8 @@ public class OutputNode extends AbstractStatement {
     // special function for displaying in string format for human readability
     public String toString() {
         if (arg == null)
-            return "writeSc()";
-        return "writeSc : \"" + arg.getLex() + "\"";
+            return "Output :\nwriteSc()";
+        return "Output :\nwriteSc: \nargument: " + arg.getLex();
     }
 
     // Node value retriever function for return object
