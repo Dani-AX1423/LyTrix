@@ -140,9 +140,11 @@ public abstract class RunTimeEvaluator {
                 inputObject = Double.parseDouble(input.nextLine());
                 break;
             default:
+                input.close();
                 throw new RuntimeException("Unsupported input type: " + type.getLex());
 
         }
+        input.close();
         return inputObject;
     }
 
