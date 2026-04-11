@@ -15,7 +15,7 @@ It is a learning-driven, architecture-first language project focused on understa
 
 ---
 
-## ✨ Philosophy
+## Philosophy
 
 LyTrix is built with the following principles:
 
@@ -29,19 +29,19 @@ LyTrix values *meaningful syntax* and *intentional design* over convenience.
 
 ---
 
-## 🧠 Language Architecture
+## Language Architecture
 
 
-### 🔹 LyTrix-R
+### LyTrix-R
 - Interpreter-based
 - Fast iteration and experimentation
 - Focused on learning and runtime behavior
 
 
-## 🧩 Core Language Concepts (Early Versions)
+## Core Language Concepts (Early Versions)
 
 ### Entry Function
-LyTrix does not use `main()`.
+LyTrix does not use the traditional `main()` as the main function's name.
 
 ```txt
 void BackLine() {
